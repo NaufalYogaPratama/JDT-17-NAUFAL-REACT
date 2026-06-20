@@ -1,7 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router";
 import Box from "../../components/box";
-import Button from "../../components/Button";
+import Button from "../../components/button";
+
 
 const Home = () => {
   const navigate = useNavigate();
@@ -33,8 +34,12 @@ const Home = () => {
           content="Move to CV Page"
         />
         <Button
-          onClick={() => movePage("/cv-page")}
-          content="Move to CV Page"
+          onClick={() => movePage("/todo")}
+          content="Move to Todo Page"
+        />
+        <Button
+          onClick={() => movePage("/movie-page")}
+          content="Move to Movies Page"
         />
       </div>
     </>

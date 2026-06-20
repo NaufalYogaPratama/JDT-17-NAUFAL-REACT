@@ -1,4 +1,5 @@
 import React from "react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 
 const Box = ({
   title,
@@ -10,21 +11,16 @@ const Box = ({
   index: number;
 }) => {
   return (
-    <div
-      className={`w-72 h-72 ${index % 2 == 0 ? "bg-blue-800" : "bg-blue-100"} text-black rounded-lg flex flex-col`}
+    <Card
+      className={`mx-32 w-48 max-w-sm mt-8 mb-8  ${index % 2 == 0 ? "bg-slate-100" : "bg-slate-200"}`}
     >
-      <div
-        className={`w-48 h-4 text-white rounded-lg flex flex-col justify-center`}
-      >
-        <div>
-          <h4>{title}</h4>
-        </div>
-        <hr className="w-5 self-center" />
-        <div>
-          <p>{desc}</p>
-        </div>
-      </div>
-    </div>
+      <CardHeader>
+        <CardTitle className="font-serif italic font-bold text-black mb-2 text-xl">{title}</CardTitle>
+        <CardDescription className="font-mono">
+          {desc}
+        </CardDescription>
+      </CardHeader>
+    </Card>
   );
 };
 

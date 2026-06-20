@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router'
 import './App.css'
 import Box from './components/box'
-import Button from './components/Button';
+import Button from './components/button';
 
 function App() {
   const Experience = [{

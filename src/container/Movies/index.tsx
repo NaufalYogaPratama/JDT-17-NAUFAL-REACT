@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { ACCESS_TOKEN, BASE_URL } from '../../constants'
 import { useNavigate } from 'react-router';
-import Button from '../../components/Button';
+import Button from '../../components/button';
 import usePopular from '../../hooks/Movies/usePopular';
 import MovieCard from '../../components/movies'
 import type { Movie } from '../../service/Movies'
