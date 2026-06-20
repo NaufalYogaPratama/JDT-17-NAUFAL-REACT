@@ -11,6 +11,7 @@ const Movie = () => {
   const [nowPlayingList, setNowPlayingList] = useState<Movie[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [upcomingList, setUpcomingList] = useState<Movie[]>([]);
+  const [topRated, setTopRated] = useState<Movie[]>([]);
   const { popularMovie } = usePopular();
 
   const getNowPlayingList = (page: number) => {
@@ -46,11 +47,28 @@ const Movie = () => {
       });
   };
 
+  const getTopRated = (page: number) => {
+    axios
+      .get(BASE_URL + `movie/top_rated`, {
+        headers: {
+          accept: "application/json",
+          Authorization: `Bearer ${ACCESS_TOKEN}`,
+        },
+      })
+      .then((res) => {
+        setTopRated(res.data.results);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   useEffect(() => {
     getNowPlayingList(1);
     getUpcomingList(1);
+    getTopRated(1);
     return () => {};
-  });
+  }, []);
 
   const navigate = useNavigate();
 
@@ -86,7 +104,7 @@ const Movie = () => {
         )}
       </div>
       <div className="w-full max-w-6xl">
-        <h1 className="text-2xl font-bold text-gray-800 mb-">
+        <h1 className="text-2xl font-bold text-gray-800 mb-4">
           Upcoming Movies
         </h1>
         {(upcomingList ?? []).length === 0 ? (
@@ -96,6 +114,22 @@ const Movie = () => {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {(upcomingList ?? []).map((movie) => (
+              <MovieCard key={movie.id} movie={movie} />
+            ))}
+          </div>
+        )}
+      </div>
+      <div className="w-full max-w-6xl">
+        <h1 className="text-2xl font-bold text-gray-800 mb-4">
+          Top Rated Movies
+        </h1>
+        {(topRated ?? []).length === 0 ? (
+          <p className="text-gray-500 animate-pulse">
+            Loading Top Rated Movies...
+          </p>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {(topRated ?? []).map((movie) => (
               <MovieCard key={movie.id} movie={movie} />
             ))}
           </div>
