@@ -105,9 +105,9 @@ const Movie = () => {
         </div>
         <Button content="Cari" onClick={handleSearch} />
         {searchResult.length > 0 && (
-            <div>
-                <h1>Hasil Pencarian: "{searchQuery}"</h1>
-                <div>
+            <div className="w-full max-w-6xl mb-12">
+                <h1 className="text-2xl font-bold text-blue-600 mb-4">Hasil Pencarian: "{searchQuery}"</h1>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     {searchResult.map((movie) => (
                         <MovieCard key={movie.id} movie={movie}/>
                     ))}
