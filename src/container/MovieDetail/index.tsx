@@ -23,14 +23,16 @@ const MovieDetail = () => {
   const navigate = useNavigate();
   const [movie, setMovie] = useState<MovieDetail | null>(null);
   const [loading, setLoading] = useState(true);
+  const [trailerKey, setTrailerKey] = useState<string | null>(null);
 
   useEffect(() => {
-    axios.get(`${BASE_URL}movie/${id}?language=en-US`, {
-      headers: {
-        accept: "application/json",
-        Authorization: `Bearer ${ACCESS_TOKEN}`,
-      },
-    })
+    axios
+      .get(`${BASE_URL}movie/${id}?language=en-US`, {
+        headers: {
+          accept: "application/json",
+          Authorization: `Bearer ${ACCESS_TOKEN}`,
+        },
+      })
       .then((response) => {
         setMovie(response.data);
       })
@@ -38,6 +40,24 @@ const MovieDetail = () => {
       .finally(() => {
         setLoading(false);
       });
+    axios
+      .get(`${BASE_URL}movie/${id}/videos?language=en-US`, {
+        headers: {
+          accept: "application/json",
+          Authorization: `Bearer ${ACCESS_TOKEN}`,
+        },
+      })
+      .then((response) => {
+        const videos = response.data.results;
+        const trailer = videos.find(
+          (vid: any) => vid.type === "Trailer" && vid.site === "YouTube",
+        );
+
+        if (trailer) {
+          setTrailerKey(trailer.key);
+        }
+      })
+      .catch((error) => console.error(error));
   }, [id]);
 
   if (loading) {
@@ -101,15 +121,15 @@ const MovieDetail = () => {
                 </div>
               )}
             </div>
-            
+
             <div className="flex flex-col p-6 md:w-2/3 lg:w-3/4 md:p-8">
               <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
                 {movie.title}
               </h1>
-              
+
               <div className="mt-4 flex flex-wrap items-center gap-2">
                 <div className="inline-flex items-center rounded-full border border-slate-200 px-2.5 py-0.5 text-xs font-semibold text-slate-900 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2">
-                   {movie.vote_average ? movie.vote_average.toFixed(1) : "N/A"}
+                  {movie.vote_average ? movie.vote_average.toFixed(1) : "N/A"}
                 </div>
                 <div className="inline-flex items-center rounded-full border border-slate-200 px-2.5 py-0.5 text-xs font-semibold text-slate-900 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2">
                   {movie.release_date}
@@ -125,10 +145,25 @@ const MovieDetail = () => {
               </div>
 
               <div className="mt-8">
-                <h2 className="text-lg font-semibold text-slate-900">Overview</h2>
+                <h2 className="text-lg font-semibold text-slate-900">
+                  Overview
+                </h2>
                 <p className="mt-2 leading-7 text-slate-600">
                   {movie.overview || "No overview available."}
                 </p>
+              </div>
+              <div>
+                <h2>Trailer</h2>
+                <div>
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src={`https://www.youtube.com/embed/${trailerKey}?autoplay=0`}
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  ></iframe>
+                </div>
               </div>
             </div>
           </div>
