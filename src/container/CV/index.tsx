@@ -1,53 +1,54 @@
 import { useNavigate } from 'react-router'
 import { Badge } from '../../components/ui/badge'
 import {Button} from '../../components/ui/button'
+import HeroImg from "../../assets/hero.png";
 
 function CvPage() {
   const navigate = useNavigate()
 
   return (
-    <div>
+    <div className='min-h-screen bg-slate-50 py-12 px-6 font-sans text-slate-900'>
         {/* content-up */}
-        <div>
-            <Button onClick={() => navigate("/")}>Kembali ke home</Button>
+        <div className='mx-auto max-w-5xl space-y-24'>
+            <Button variant={'outline'} size="sm" className='mb-8' onClick={() => navigate("/")}>Kembali ke home</Button>
             
             {/* HERO SECTION */}
-            <section>
+            <section className='flex flex-col-reverse md:flex-row items-center gap-12 md:gap-24'>
                 {/* content left */}
-                <div>
+                <div className='flex-1 space-y-6'>
                     {/* content inside 1 */}
-                    <Badge>
-                        <span>
-                            Halo bang
-                        </span>
+                    <Badge variant="secondary" className="text-blue-700 bg-blue-100 hover:bg-blue-200 font-mono">
+                        <span className="mr-2 h-2 w-2 rounded-full bg-blue-600 animate-pulse"></span>
+                        - alo amigos -
+                        <span className="mr-2 h-2 w-2 rounded-full bg-blue-600 animate-pulse"></span>
                     </Badge>
                     {/* content inside 2 */}
-                    <div>
+                    <div className='space-y-2 '>
                         {/* content inside 2.1 */}
-                        <h1>
+                        <h1 className='text-4xl md:text-5xl font-extrabold tracking-tight'>
                             Naufal Yoga Pratama
                         </h1>
                         {/* content inside 2.2 */}
-                        <p>
+                        <p className='text-lg md:text-xl text-slate-600 font-medium'>
                             Software Engineer | Fans Messi
                         </p>
                     </div>
                     {/* content inside 3 */}
-                    <p>
+                    <p className='text-slate-600 leading-relaxed max-w-xl'>
                         Kadang suka ngoding kadang kidding
                     </p>
                     {/* content inside 4 */}
-                    <div>
-                        <Button>Email me</Button>
-                        <Button>Connect</Button>
+                    <div className='flex items-center gap-4 pt-4 ml-40 mt-12'>
+                        <Button className='bg-blue-600 hover:bg-blue-700 text-white px-8'>Email me</Button>
+                        <Button variant="outline" className='text-slate-900 hover:bg-slate-100'>Connect</Button>
                     </div>
                 </div>
 
                 {/* content right */}
-                <div>
+                <div className='md:w-[350px] shrink-0'>
                     {/* content inside 1 */}
-                    <div>
-                        <img src="@/assets/hero.png" alt="foto-hero"/>
+                    <div className='aspect-[4/5] overflow-hidden rounded-2xl bg-slate-200 shadow-xl border border-slate-200'>
+                        <img src={HeroImg} alt="foto-hero" className='w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500'/>
                     </div>
                 </div>
             </section>
