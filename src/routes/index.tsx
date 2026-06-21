@@ -3,7 +3,7 @@ import ProtectedRoute from "./protectedRoutes";
 import Login from "../container/Login";
 import Layout from "../components/layout";
 import Home from "../container/Homepage";
-import CvPage from "../pages/CvPage";
+import CvPage from "../container/CV";
 import Todo from "../container/Todo";
 import Movie from "../container/Movies";
 import MovieDetail from "../container/MovieDetail";
