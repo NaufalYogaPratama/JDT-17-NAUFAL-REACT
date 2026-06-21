@@ -17,7 +17,7 @@ function CvPage() {
                 {/* content left */}
                 <div className='flex-1 space-y-6'>
                     {/* content inside 1 */}
-                    <Badge variant="secondary" className="text-blue-700 bg-blue-100 hover:bg-blue-200 font-mono">
+                    <Badge variant="secondary" className="text-blue-700 bg-slate-50 hover:bg-blue-200 font-mono">
                         <span className="mr-2 h-2 w-2 rounded-full bg-blue-600 animate-pulse"></span>
                         - alo amigos -
                         <span className="mr-2 h-2 w-2 rounded-full bg-blue-600 animate-pulse"></span>
@@ -51,6 +51,57 @@ function CvPage() {
                         <img src={HeroImg} alt="foto-hero" className='w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500'/>
                     </div>
                 </div>
+            </section>
+            {/* ABOUT ME SECTION */}
+            <section>
+                <h2>
+                    About Me
+                </h2>
+                {/* content kiri */}
+                <div>
+                    {/* content inside 1 */}
+                    <div>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat eveniet tempore cumque velit tenetur distinctio inventore, officia ratione vitae? Expedita porro officia possimus, earum eligendi magnam sint et deleniti illum.
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit molestias, amet eum quos quod voluptatibus cumque labore error laudantium in at officia modi officiis veniam ad, nemo, quaerat ea neque.
+                        </p>
+                    </div>
+                </div>
+                {/* content kanan */}
+                <div>
+                    {/* content inside 2.1 */}
+                    <div>
+                        <h3>Core Discipline</h3>
+                    </div>
+                    {/* content inside 2.2 */}
+                    <div>
+                        <Badge variant="secondary">Web Developer</Badge>
+                        <Badge variant="secondary">Cloud Computing</Badge>
+                    </div>
+                </div>
+            </section>
+            {/* EDUCATION SECTION */}
+            <section>
+                <h2>Education</h2>
+                {/* content inside */}
+                <div>
+                    {/* content kiwo */}
+                    <div>Aug 2021 - April 2026</div>
+                    {/* content tengen */}
+                    <div>
+                        {/* content tengen 1 */}
+                        <h3>Universitas Diponegoro</h3>
+                        {/* content tengen 2 */}
+                        <p>Bachelor of Computer Engineering</p>
+                        {/* content tengen 3 */}
+                        <div>
+                            <Badge variant="secondary">GPA: 3.84/4.00</Badge>
+                        </div>
+                    </div>
+                </div>
+
             </section>
         </div>
     </div>
