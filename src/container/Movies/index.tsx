@@ -6,12 +6,15 @@ import usePopular from "../../hooks/Movies/usePopular";
 import MovieCard from "../../components/movies";
 import type { Movie } from "../../service/Movies";
 import axios from "axios";
+import { Input } from "../../components/ui/input";
 
 const Movie = () => {
   const [nowPlayingList, setNowPlayingList] = useState<Movie[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [upcomingList, setUpcomingList] = useState<Movie[]>([]);
   const [topRated, setTopRated] = useState<Movie[]>([]);
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [searchResult, setSearchResult] = useState<Movie[]>([]);
   const { popularMovie } = usePopular();
 
   const getNowPlayingList = (page: number) => {
@@ -63,6 +66,25 @@ const Movie = () => {
       });
   };
 
+  const handleSearch = () => {
+    if (!searchQuery) {
+        return;
+    }
+    axios
+      .get(BASE_URL + `search/movie?query=${searchQuery}&language=en-US`, {
+        headers: {
+          accept: "application/json",
+          Authorization: `Bearer ${ACCESS_TOKEN}`,
+        },
+      })
+      .then((res) => {
+        setSearchResult(res.data.results);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   useEffect(() => {
     getNowPlayingList(1);
     getUpcomingList(1);
@@ -78,6 +100,20 @@ const Movie = () => {
     <div className="flex flex-col items-center gap-6 p-8 min-h-screen w-full">
       <h1 className="text-3xl font-bold text-gray-800">Now Playing Movies</h1>
       <Button content="Kembali ke Home" onClick={() => navigate("/")} />
+        <div className="flex w-full max-w-sm items-center gap-2 mt-4 mb-8">
+            <Input type="text" placeholder="Cari film..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}/>
+        </div>
+        <Button content="Cari" onClick={handleSearch} />
+        {searchResult.length > 0 && (
+            <div>
+                <h1>Hasil Pencarian: "{searchQuery}"</h1>
+                <div>
+                    {searchResult.map((movie) => (
+                        <MovieCard key={movie.id} movie={movie}/>
+                    ))}
+                </div>
+            </div>
+        )}
       {loading ? (
         <p className="text-gray-500 animate-pulse">Loading movies...</p>
       ) : (
