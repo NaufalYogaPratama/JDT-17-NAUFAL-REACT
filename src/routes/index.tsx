@@ -17,16 +17,16 @@ export const routes = createBrowserRouter([
         element: <Login />,
       },
       {
+        path: "/cv-page",
+        element: <CvPage />,
+      },
+      {
         path: "/",
         element: <Layout />,
         children: [
           {
             element: <Home />,
             index: true,
-          },
-          {
-            path: "/cv-page",
-            element: <CvPage />,
           },
           {
             path: "/todo",

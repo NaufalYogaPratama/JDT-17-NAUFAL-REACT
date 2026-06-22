@@ -1,23 +1,18 @@
-import { Outlet, useLocation } from "react-router"
+import { Outlet, Navigate, useLocation } from "react-router"
 import { useToken } from "../hooks/useToken";
 
 const ProtectedRoute = () => {
     const { pathname } = useLocation();
     const { user } = useToken();
 
-    const tokenProtected = ["/", "/cv-page", "todo", "/movie-page"];
-    const auth = ["/login"];
+    const isAuthRoute = pathname === "/login";
 
-    if (tokenProtected.includes(pathname)) {
-        if (!user?.accessToken) {
-            window.location.href = "/login"
-        }
+    if (!user?.accessToken && !isAuthRoute) {
+        return <Navigate to="/login" replace />;
     }
 
-    if (auth.includes(pathname)) {
-        if (user?.accessToken) {
-            window.location.href = "/"
-        }
+    if (user?.accessToken && isAuthRoute) {
+        return <Navigate to="/" replace />;
     }
 
     return <Outlet/>

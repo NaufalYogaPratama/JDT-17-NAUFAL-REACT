@@ -2,10 +2,13 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import { RouterProvider } from 'react-router'
-import { router } from './routes.tsx'
+import { routes } from './routes/index.tsx'
+import { TokenProvider } from './hooks/useToken.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router}/>
+    <TokenProvider>
+      <RouterProvider router={routes}/>
+    </TokenProvider>
   </StrictMode>,
 )

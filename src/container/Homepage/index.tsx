@@ -1,12 +1,10 @@
-import { useNavigate } from "react-router";
+
 import Box from "../../components/box";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
-import { User, ListTodo, Film, Briefcase } from "lucide-react";
 import { Badge } from "../../components/ui/badge";
 
 const Home = () => {
-  const navigate = useNavigate();
   
   const Experience = () => [
     {
@@ -19,9 +17,7 @@ const Home = () => {
     },
   ];
 
-  const movePage = (url: string) => {
-    navigate(url);
-  };
+
 
   return (
     <div className="movie-page-container min-h-screen bg-[#000000] text-[#EEEEEE] flex flex-col w-full overflow-x-hidden font-sans relative bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#CB2957]/10 via-[#000000] to-[#000000] bg-grid-pattern">
