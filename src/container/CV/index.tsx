@@ -7,7 +7,7 @@ function CvPage() {
   const navigate = useNavigate()
 
   return (
-    <div className='min-h-screen bg-slate-50 py-12 px-6 font-sans text-slate-900'>
+    <div className='min-h-screen bg-slate-50 py-12 px-6 font-sans text-slate-900 text-left'>
         {/* content-up */}
         <div className='mx-auto max-w-5xl space-y-24'>
             <Button variant={'outline'} size="sm" className='mb-8' onClick={() => navigate("/")}>Kembali ke home</Button>
@@ -53,14 +53,14 @@ function CvPage() {
                 </div>
             </section>
             {/* ABOUT ME SECTION */}
-            <section>
-                <h2>
+            <section className="space-y-8 pt-12 border-t border-slate-200">
+                <h2 className="text-2xl font-bold">
                     About Me
                 </h2>
                 {/* content kiri */}
-                <div>
+                <div className="grid md:grid-cols-2 gap-12">
                     {/* content inside 1 */}
-                    <div>
+                    <div className="space-y-4 text-slate-600 leading-relaxed text-justify">
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat eveniet tempore cumque velit tenetur distinctio inventore, officia ratione vitae? Expedita porro officia possimus, earum eligendi magnam sint et deleniti illum.
                         </p>
@@ -68,40 +68,40 @@ function CvPage() {
                             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit molestias, amet eum quos quod voluptatibus cumque labore error laudantium in at officia modi officiis veniam ad, nemo, quaerat ea neque.
                         </p>
                     </div>
-                </div>
-                {/* content kanan */}
-                <div>
-                    {/* content inside 2.1 */}
+                    {/* content kanan */}
                     <div>
-                        <h3>Core Discipline</h3>
-                    </div>
-                    {/* content inside 2.2 */}
-                    <div>
-                        <Badge variant="secondary">Web Developer</Badge>
-                        <Badge variant="secondary">Cloud Computing</Badge>
+                        {/* content inside 2.1 */}
+                        <div className="bg-slate-50 border border-slate-200 p-6 rounded-xl shadow-sm h-full hover:shadow-md transition-shadow">
+                            <h3 className="font-semibold mb-4 text-slate-900">Core Discipline</h3>
+                            {/* content inside 2.2 */}
+                            <div className="flex flex-wrap gap-2">
+                                <Badge variant="secondary" className="bg-slate-200/50 hover:bg-slate-200">Web Developer</Badge>
+                                <Badge variant="secondary" className="bg-slate-200/50 hover:bg-slate-200">Cloud Computing</Badge>
+                                <Badge variant="secondary" className="bg-slate-200/50 hover:bg-slate-200">Backend Developer</Badge>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
             {/* EDUCATION SECTION */}
-            <section>
-                <h2>Education</h2>
+            <section className="space-y-8 pt-12 border-t border-slate-200">
+                <h2 className="text-2xl font-bold">Education</h2>
                 {/* content inside */}
-                <div>
+                <div className="flex flex-col md:flex-row gap-4 md:gap-16">
                     {/* content kiwo */}
-                    <div>Aug 2021 - April 2026</div>
+                    <div className="md:w-48 shrink-0 text-sm font-medium text-slate-400 mt-1">Aug 2021 - April 2026</div>
                     {/* content tengen */}
-                    <div>
+                    <div className="space-y-2">
                         {/* content tengen 1 */}
-                        <h3>Universitas Diponegoro</h3>
+                        <h3 className="text-xl font-bold text-slate-900">Universitas Diponegoro</h3>
                         {/* content tengen 2 */}
-                        <p>Bachelor of Computer Engineering</p>
+                        <p className="text-slate-600 font-medium">Bachelor of Computer Engineering</p>
                         {/* content tengen 3 */}
-                        <div>
-                            <Badge variant="secondary">GPA: 3.84/4.00</Badge>
+                        <div className="flex items-center gap-3 pt-2">
+                            <Badge variant="secondary" className="bg-blue-100 text-blue-700 hover:bg-blue-200 border-none font-bold">GPA: 3.84/4.00</Badge>
                         </div>
                     </div>
                 </div>
-
             </section>
         </div>
     </div>
