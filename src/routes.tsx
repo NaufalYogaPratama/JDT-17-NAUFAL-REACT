@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router";
 import Home from "./container/Homepage";
 import CvPage from "./container/CV";
 import Todo from "./container/Todo";
-import Movie from "./container/Movies";
+import MoviePage from "./container/Movies";
 import MovieDetail from "./container/MovieDetail";
 import Login from "./container/Login";
 
@@ -22,7 +22,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/movie-page",
-    element: <Movie />,
+    element: <MoviePage />,
   },
   {
     path: "/movie/:id",

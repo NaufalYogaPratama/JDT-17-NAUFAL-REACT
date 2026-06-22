@@ -10,7 +10,7 @@ function CvPage() {
   return (
     <div className="min-h-screen bg-slate-50 py-12 px-6 font-sans text-slate-900 ">
       {/* content-up */}
-      <div className="mx-auto max-w-5xl space-y-24">
+      <div className="mx-auto max-w-5xl space-y-24 text-center">
         <Button
           variant={"outline"}
           size="sm"
@@ -23,7 +23,7 @@ function CvPage() {
         {/* HERO SECTION */}
         <section className="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-24">
           {/* content left */}
-          <div className="flex-1 space-y-6">
+          <div className="flex-1 space-y-4">
             {/* content inside 1 */}
             <Badge
               variant="secondary"
@@ -45,12 +45,12 @@ function CvPage() {
               </p>
             </div>
             {/* content inside 3 */}
-            <p className="text-slate-600 leading-relaxed max-w-xl">
-              Kadang suka ngoding kadang kidding
+            <p className="text-slate-600 leading-relaxed max-w-xl italic">
+              kadang suka ngoding kadang kidding
             </p>
             {/* content inside 4 */}
             <div className="flex items-center gap-4 pt-4 ml-40 mt-12">
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8">
+              <Button className="bg-blue-600/80 hover:bg-blue-700 text-white px-8">
                 Email me
               </Button>
               <Button
@@ -75,7 +75,7 @@ function CvPage() {
           </div>
         </section>
         {/* EDUCATION SECTION */}
-        <section className="space-y-8 pt-12 border-t border-slate-200 text-left">
+        <section className="space-y-8 pt-12 border-t border-slate-200 text-left ">
           <h2 className="text-2xl font-bold">Education</h2>
           {/* content inside */}
           <div className="flex flex-col mt-4 md:flex-row gap-4 md:gap-16">

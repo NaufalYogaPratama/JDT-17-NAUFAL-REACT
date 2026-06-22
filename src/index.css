@@ -111,3 +111,50 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+/* Overrides for Movie Page widescreen immersive layout */
+#root:has(.movie-page-container),
+#root:has(.movie-detail-container) {
+  width: 100vw;
+  max-width: 100%;
+  border-inline: none;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  color: #DDDDDD;
+}
+
+#root:has(.movie-page-container) h1,
+#root:has(.movie-page-container) h2,
+#root:has(.movie-detail-container) h1,
+#root:has(.movie-detail-container) h2 {
+  color: #EEEEEE;
+}
+
+/* Hide scrollbars on movie horizontal rails */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Subtle cinematic grid background pattern */
+.bg-grid-pattern {
+  position: relative;
+}
+.bg-grid-pattern::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-size: 30px 30px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+}
+
+

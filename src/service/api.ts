@@ -3,7 +3,7 @@ import { ACCESS_TOKEN, BASE_URL } from "../constants";
 
 const API = axios.create();
 
-export const setAxiosConfig = (token: string) => {
+export const setAxiosConfig = (_token: string) => {
     
 }
 

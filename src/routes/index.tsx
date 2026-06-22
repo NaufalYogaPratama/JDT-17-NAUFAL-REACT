@@ -5,7 +5,7 @@ import Layout from "../components/layout";
 import Home from "../container/Homepage";
 import CvPage from "../container/CV";
 import Todo from "../container/Todo";
-import Movie from "../container/Movies";
+import MoviePage from "../container/Movies";
 import MovieDetail from "../container/MovieDetail";
 
 export const routes = createBrowserRouter([
@@ -34,7 +34,7 @@ export const routes = createBrowserRouter([
           },
           {
             path: "/movie-page",
-            element: <Movie />,
+            element: <MoviePage />,
           },
           {
             path: "/movie/:id",
