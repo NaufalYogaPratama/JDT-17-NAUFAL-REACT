@@ -115,16 +115,19 @@ function CvPage() {
             {/* content inside 1 */}
             <div className="space-y-4 text-slate-600 leading-relaxed text-justify mt-4">
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Repellat eveniet tempore cumque velit tenetur distinctio
-                inventore, officia ratione vitae? Expedita porro officia
-                possimus, earum eligendi magnam sint et deleniti illum.
+                I am a highly motivated Computer Engineering student
+                with a deep-rooted passion for the convergence of
+                cutting-edge technologies. My focus lies primarily in
+                Artificial Intelligence, Cloud Computing, and Blockchain
+                ecosystems, where I strive to understand not just how
+                systems work, but how they scale securely.
               </p>
               <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Impedit molestias, amet eum quos quod voluptatibus cumque labore
-                error laudantium in at officia modi officiis veniam ad, nemo,
-                quaerat ea neque.
+                Through academic rigor and hands-on projects, I have
+                developed a robust mental model for software
+                development. I approach engineering problems with a
+                developer-first mindset, prioritizing code maintainability,
+                architectural clarity, and performant execution.
               </p>
             </div>
             {/* content kanan */}
